@@ -1,0 +1,5 @@
+.gameview {
+  background-color: var(--color-blue);
+  height: 100%;
+  width: 100%;
+}

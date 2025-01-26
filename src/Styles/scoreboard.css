@@ -1,0 +1,11 @@
+.scoreboard-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.scoreboard-container p {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
