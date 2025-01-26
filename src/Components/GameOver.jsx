@@ -1,5 +1,7 @@
 import Text from "./Text";
 import Button from "./Button";
+import "../styles/gameover.css";
+
 function GameOver({ resetGame }) {
   return (
     <div className="gameover-container">

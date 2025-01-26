@@ -15,7 +15,7 @@ function Cards({
   useEffect(() => {
     const loadPokemon = async () => {
       try {
-        const pokemonInfo = await getPokemonData(6);
+        const pokemonInfo = await getPokemonData(12);
         setPokemon(pokemonInfo);
         handleShuffle(pokemonInfo);
         setActivePokemon(

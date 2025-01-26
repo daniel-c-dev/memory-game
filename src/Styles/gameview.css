@@ -1,5 +1,24 @@
 .gameview {
   background-color: var(--color-blue);
-  height: 100%;
-  width: 100%;
+  background-size: cover;
+  overscroll-behavior-block: contain;
+  display: grid;
+  grid-template: 1fr 10fr 1fr/ 1fr;
+  grid-template-areas:
+    "scoreboard-container"
+    "main-container"
+    ".";
+  min-height: 100%;
+}
+
+.gameview .scoreboard-container {
+  grid-area: scoreboard-container;
+}
+
+.gameview .cards-container {
+  grid-area: main-container;
+}
+
+.gameview .gameover {
+  grid-area: main-container;
 }
