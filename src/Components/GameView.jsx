@@ -8,7 +8,7 @@ function GameView() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [activePokemon, setActivePokemon] = useState([]);
-  const [gameOver, setGameOver] = useState(false);
+  const [gameState, setGameState] = useState("playing");
 
   const handleScoreChange = () => {
     setScore((score) => {
@@ -25,22 +25,22 @@ function GameView() {
   const resetGame = () => {
     setScore(0);
     setActivePokemon([]);
-    setGameOver(false);
+    setGameState("playing");
   };
 
   return (
     <div className="gameview">
       <ScoreBoard score={score} highScore={highScore} />
-      {!gameOver ? (
+      {gameState === "playing" ? (
         <Cards
-          key={gameOver}
+          key={gameState}
           activePokemon={activePokemon}
           setActivePokemon={setActivePokemon}
           handleScoreChange={handleScoreChange}
-          setGameOver={setGameOver}
+          setGameState={setGameState}
         />
       ) : (
-        <GameOver resetGame={resetGame} />
+        <GameOver gameState={gameState} resetGame={resetGame} />
       )}
     </div>
   );

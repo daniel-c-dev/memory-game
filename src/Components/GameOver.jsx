@@ -2,10 +2,14 @@ import Text from "./Text";
 import Button from "./Button";
 import "../styles/gameover.css";
 
-function GameOver({ resetGame }) {
+function GameOver({ gameState, resetGame }) {
   return (
     <div className="gameover-container">
-      <Text text="Game Over!" />
+      {gameState === "win" ? (
+        <Text text="You win!" />
+      ) : (
+        <Text text="Game Over!" />
+      )}
       <Button text="Restart" onClick={resetGame} />
     </div>
   );

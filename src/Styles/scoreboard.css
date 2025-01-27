@@ -1,7 +1,13 @@
 .scoreboard-container {
+  background-color: var(--color-gray);
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  margin: 0 1rem 1rem 1rem;
+  text-align: left;
+  justify-content: center;
+  margin: 1rem 1rem 1rem 1rem;
+  padding: 0 0 0 2rem;
+  max-width: 12rem;
 }
 
 .scoreboard-container p {

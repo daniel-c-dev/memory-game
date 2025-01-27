@@ -26,6 +26,7 @@ const fetchAllPokemon = async (url) => {
   if (!response.ok) {
     throw new Error(`Failed to fetch data from ${url}`);
   }
+  console.log(`Fetched pokemon data.`);
   return response.json();
 };
 

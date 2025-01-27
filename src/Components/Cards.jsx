@@ -7,7 +7,7 @@ function Cards({
   activePokemon,
   setActivePokemon,
   handleScoreChange,
-  setGameOver,
+  setGameState,
 }) {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ function Cards({
   useEffect(() => {
     const loadPokemon = async () => {
       try {
-        const pokemonInfo = await getPokemonData(12);
+        const pokemonInfo = await getPokemonData(6);
         setPokemon(pokemonInfo);
         handleShuffle(pokemonInfo);
         setActivePokemon(
@@ -33,9 +33,6 @@ function Cards({
   }, [setActivePokemon]);
 
   const handlePokemonClick = (pokemonName) => {
-    console.log(
-      `Active pokemon: ${activePokemon}, Pokemon name: ${pokemonName}.`
-    );
     console.log(activePokemon.includes(pokemonName));
     if (activePokemon.includes(pokemonName)) {
       handleScoreChange();
@@ -43,9 +40,14 @@ function Cards({
         prevActivePokemon.filter((name) => name !== pokemonName)
       );
       handleShuffle(pokemon);
+      console.log(`Active pokemon: ${JSON.stringify(activePokemon)}`);
+      if (activePokemon.length - 1 === 0) {
+        console.log(`Game over! Player wins!`);
+        setGameState("win");
+      }
     } else {
       console.log(`Game over! Pokemon already clicked: ${pokemonName}`);
-      setGameOver(true);
+      setGameState("loss");
     }
   };
 
