@@ -1,0 +1,29 @@
+.difficulty-select-container {
+  background-color: var(--color-gray);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 30rem;
+  max-width: 30rem;
+  min-height: 10rem;
+  max-height: 20rem;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.difficulty-buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.difficulty-select-container p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.difficulty-buttons-container button {
+  font-size: 1.25rem;
+  font-weight: 600;
+}

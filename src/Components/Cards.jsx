@@ -8,14 +8,28 @@ function Cards({
   setActivePokemon,
   handleScoreChange,
   setGameState,
+  difficulty,
 }) {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  let pokemonCount = 0;
+
+  switch (difficulty) {
+    case "easy":
+      pokemonCount = 6;
+      break;
+    case "normal":
+      pokemonCount = 9;
+      break;
+    case "hard":
+      pokemonCount = 12;
+  }
+
   useEffect(() => {
     const loadPokemon = async () => {
       try {
-        const pokemonInfo = await getPokemonData(6);
+        const pokemonInfo = await getPokemonData(pokemonCount);
         setPokemon(pokemonInfo);
         handleShuffle(pokemonInfo);
         setActivePokemon(
@@ -30,7 +44,7 @@ function Cards({
       }
     };
     loadPokemon();
-  }, [setActivePokemon]);
+  }, [setActivePokemon, pokemonCount]);
 
   const handlePokemonClick = (pokemonName) => {
     console.log(activePokemon.includes(pokemonName));
