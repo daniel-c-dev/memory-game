@@ -1,6 +1,6 @@
-import { useState, useEffect, act } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
-import { getPokemonData, shufflePokemon } from "./getPokemon";
+import { getPokemonData, shuffleArray } from "./getPokemon";
 import "../styles/cards.css";
 
 function Cards({
@@ -14,6 +14,7 @@ function Cards({
   const [loading, setLoading] = useState(true);
 
   let pokemonCount = 0;
+  let pokemonLoaded = false;
 
   switch (difficulty) {
     case "easy":
@@ -29,14 +30,17 @@ function Cards({
   useEffect(() => {
     const loadPokemon = async () => {
       try {
-        const pokemonInfo = await getPokemonData(pokemonCount);
-        setPokemon(pokemonInfo);
-        handleShuffle(pokemonInfo);
-        setActivePokemon(
-          pokemonInfo.map((pokemon) => {
-            return pokemon.name;
-          })
-        );
+        if (!pokemonLoaded) {
+          pokemonLoaded = true;
+          const pokemonInfo = await getPokemonData(pokemonCount);
+          setPokemon(pokemonInfo);
+          handleShuffle(pokemonInfo);
+          setActivePokemon(
+            pokemonInfo.map((pokemon) => {
+              return pokemon.name;
+            })
+          );
+        }
       } catch (error) {
         console.log("Error fetching Pokemon: ", error);
       } finally {
@@ -68,7 +72,7 @@ function Cards({
   const handleShuffle = (pokemonArray) => {
     setLoading(true);
     const shuffledPokemon = [...pokemonArray];
-    shufflePokemon(shuffledPokemon);
+    shuffleArray(shuffledPokemon);
     setPokemon(shuffledPokemon);
     setLoading(false);
   };

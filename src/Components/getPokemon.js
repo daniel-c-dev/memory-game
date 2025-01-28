@@ -33,15 +33,15 @@ const generateRandomNumbers = (count) => {
   for (let i = 0; i < array.length; i++) {
     array[i] = i + 1;
   }
-  shufflePokemon(array);
+  shuffleArray(array);
   return array;
 };
 
-const shufflePokemon = (pokemonArray) => {
+const shuffleArray = (pokemonArray) => {
   for (let i = pokemonArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [pokemonArray[i], pokemonArray[j]] = [pokemonArray[j], pokemonArray[i]];
   }
 };
 
-export { getPokemonData, shufflePokemon };
+export { getPokemonData, shuffleArray };
