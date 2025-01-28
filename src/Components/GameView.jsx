@@ -3,8 +3,9 @@ import ScoreBoard from "./Scoreboard";
 import Cards from "./Cards";
 import GameOver from "./GameOver";
 import "../styles/gameview.css";
+import Button from "./Button";
 
-function GameView({ difficulty }) {
+function GameView({ difficulty, setDifficulty }) {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [activePokemon, setActivePokemon] = useState([]);
@@ -28,18 +29,25 @@ function GameView({ difficulty }) {
     setGameState("playing");
   };
 
+  const returnToHome = () => {
+    setDifficulty("");
+  };
+
   return (
     <div className="gameview">
-      <ScoreBoard score={score} highScore={highScore} />
       {gameState !== "win" && gameState !== "loss" ? (
-        <Cards
-          key={gameState}
-          activePokemon={activePokemon}
-          setActivePokemon={setActivePokemon}
-          handleScoreChange={handleScoreChange}
-          setGameState={setGameState}
-          difficulty={difficulty}
-        />
+        <>
+          <ScoreBoard score={score} highScore={highScore} />
+          <Button className="home-button" text="Home" onClick={returnToHome} />
+          <Cards
+            key={gameState}
+            activePokemon={activePokemon}
+            setActivePokemon={setActivePokemon}
+            handleScoreChange={handleScoreChange}
+            setGameState={setGameState}
+            difficulty={difficulty}
+          />
+        </>
       ) : (
         <GameOver gameState={gameState} resetGame={resetGame} />
       )}

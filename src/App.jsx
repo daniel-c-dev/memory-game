@@ -10,7 +10,7 @@ function App() {
   return difficulty === "" ? (
     <MainMenu setDifficulty={setDifficulty} />
   ) : (
-    <GameView difficulty={difficulty} />
+    <GameView difficulty={difficulty} setDifficulty={setDifficulty} />
   );
 }
 

@@ -3,11 +3,11 @@
   background-size: cover;
   overscroll-behavior-block: contain;
   display: grid;
-  grid-template: 1fr 10fr 1fr/ 1fr;
+  grid-template: 1fr 10fr 1fr/ 1fr 1fr 1fr;
   grid-template-areas:
-    "scoreboard-container"
-    "main-container"
-    ".";
+    "scoreboard-container home-button ."
+    "main-container main-container main-container"
+    ". . .";
   min-height: 100%;
 }
 
@@ -19,6 +19,11 @@
   grid-area: main-container;
 }
 
-.gameview .gameover {
+.gameview .gameover-container {
   grid-area: main-container;
+}
+
+.gameview .home-button {
+  grid-area: home-button;
+  margin: auto;
 }
