@@ -17,13 +17,13 @@ function Cards({
 
   switch (difficulty) {
     case "easy":
-      pokemonCount = 6;
+      pokemonCount = 5;
       break;
     case "normal":
-      pokemonCount = 9;
+      pokemonCount = 10;
       break;
     case "hard":
-      pokemonCount = 12;
+      pokemonCount = 15;
   }
 
   useEffect(() => {
