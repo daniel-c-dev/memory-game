@@ -3,17 +3,24 @@ const API_URL = "https://pokeapi.co/api/v2/pokemon/";
 /**
  * Fetch pokemon data from pokeapi.
  * @param {number} pokemonCount - Number of pokemon to get
- * @return {Array<Object>} - Array of pokemon {name, image}
+ * @return {Array<Object>} - Array of pokemon {id, name, image}
  */
 const getPokemonData = async (pokemonCount) => {
-  const data = await fetchAllPokemon(`${API_URL}?limit=${pokemonCount}`);
+  let randomNumArray = generateRandomNumbers(800);
+  let pokemonArray = [pokemonCount];
+
+  for (let i = 0; i < pokemonCount; i++) {
+    const pokemonUrlToFetch = `${API_URL}${randomNumArray.pop()}`;
+    const pokemonResponse = await fetch(`${pokemonUrlToFetch}`);
+    console.log(`Fetched pokemon from: ${pokemonUrlToFetch}`);
+    pokemonArray[i] = pokemonResponse;
+  }
   const pokemonInfo = await Promise.all(
-    data.results.map(async (pokemon) => {
-      const pokemonResponse = await fetch(pokemon.url);
-      const pokemonData = await pokemonResponse.json();
+    pokemonArray.map(async (pokemon) => {
+      const pokemonData = await pokemon.json();
       return {
-        id: crypto.randomUUID(),
-        name: pokemon.name,
+        id: pokemonData.id,
+        name: pokemonData.name,
         image: pokemonData.sprites.front_default,
       };
     })
@@ -21,13 +28,13 @@ const getPokemonData = async (pokemonCount) => {
   return pokemonInfo;
 };
 
-const fetchAllPokemon = async (url) => {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch data from ${url}`);
+const generateRandomNumbers = (count) => {
+  let array = new Array(count);
+  for (let i = 0; i < array.length; i++) {
+    array[i] = i + 1;
   }
-  console.log(`Fetched pokemon data.`);
-  return response.json();
+  shufflePokemon(array);
+  return array;
 };
 
 const shufflePokemon = (pokemonArray) => {
