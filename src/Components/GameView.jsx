@@ -40,7 +40,7 @@ function GameView({ difficulty, setDifficulty }) {
           <ScoreBoard score={score} highScore={highScore} />
           <Button
             className="home-button"
-            image={"/src/assets/pokeball-icon.png"}
+            image="/src/assets/pokeball-icon.png"
             onClick={returnToHome}
           />
           <Cards
