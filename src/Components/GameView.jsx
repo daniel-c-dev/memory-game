@@ -49,7 +49,7 @@ function GameView({ difficulty, setDifficulty }) {
           />
         </>
       ) : (
-        <GameOver gameState={gameState} resetGame={resetGame} />
+        <GameOver score={score} gameState={gameState} resetGame={resetGame} />
       )}
     </div>
   );

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
+import Loading from "./Loading";
 import { getPokemonData, shuffleArray } from "./getPokemon";
 import "../styles/cards.css";
 
@@ -12,6 +13,7 @@ function Cards({
 }) {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
+  console.log(`Loading value on component mount: ${loading}`);
 
   let pokemonCount = 0;
   let pokemonLoaded = false;
@@ -44,7 +46,7 @@ function Cards({
       } catch (error) {
         console.log("Error fetching Pokemon: ", error);
       } finally {
-        setLoading(false);
+        setTimeout(() => setLoading(false), 1000);
       }
     };
     loadPokemon();
@@ -70,17 +72,15 @@ function Cards({
   };
 
   const handleShuffle = (pokemonArray) => {
-    setLoading(true);
     const shuffledPokemon = [...pokemonArray];
     shuffleArray(shuffledPokemon);
     setPokemon(shuffledPokemon);
-    setLoading(false);
   };
 
   return (
     <div className="cards-container">
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         pokemon.map((pokemon) => (
           <Card
