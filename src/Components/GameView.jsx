@@ -2,8 +2,9 @@ import { useState } from "react";
 import ScoreBoard from "./Scoreboard";
 import Cards from "./Cards";
 import GameOver from "./GameOver";
-import "../Styles/gameview.css";
 import Button from "./Button";
+import "../Styles/gameview.css";
+import pokeballIcon from "/public/pokeball-icon.png";
 
 function GameView({ difficulty, setDifficulty }) {
   const [score, setScore] = useState(0);
@@ -40,7 +41,7 @@ function GameView({ difficulty, setDifficulty }) {
           <ScoreBoard score={score} highScore={highScore} />
           <Button
             className="home-button"
-            image="/src/assets/pokeball-icon.png"
+            image={pokeballIcon}
             onClick={returnToHome}
           />
           <Cards
