@@ -1,4 +1,4 @@
-import "../styles/text.css";
+import "../Styles/text.css";
 
 function Text({ text }) {
   return <p>{text}</p>;

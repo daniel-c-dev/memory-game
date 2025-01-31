@@ -2,7 +2,7 @@ import { useState } from "react";
 import ScoreBoard from "./Scoreboard";
 import Cards from "./Cards";
 import GameOver from "./GameOver";
-import "../styles/gameview.css";
+import "../Styles/gameview.css";
 import Button from "./Button";
 
 function GameView({ difficulty, setDifficulty }) {

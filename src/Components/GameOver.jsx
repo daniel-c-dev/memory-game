@@ -1,6 +1,6 @@
 import Text from "./Text";
 import Button from "./Button";
-import "../styles/gameover.css";
+import "../Styles/gameover.css";
 
 function GameOver({ score, gameState, resetGame }) {
   const scoreMessage = `Your score was: ${score}`;

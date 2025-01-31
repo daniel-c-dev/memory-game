@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Text from "./Text";
 import Image from "./Image";
-import "../styles/card.css";
+import "../Styles/card.css";
 
 function Card({ pokemon, handlePokemonClick }) {
   const handleClick = () => {

@@ -1,5 +1,5 @@
 import Text from "./Text";
-import "../styles/loading.css";
+import "../Styles/loading.css";
 
 function Loading() {
   return (

@@ -1,6 +1,6 @@
 import Button from "./Button";
 import Text from "./Text";
-import "../styles/difficultyselect.css";
+import "../Styles/difficultyselect.css";
 
 function DifficultySelect({ handleDifficultySelection }) {
   return (

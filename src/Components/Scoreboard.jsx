@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Score from "./Score";
 import HighScore from "./HighScore";
-import "../styles/scoreboard.css";
+import "../Styles/scoreboard.css";
 
 function ScoreBoard({ score, highScore }) {
   // increment score when clicking a new pokemon

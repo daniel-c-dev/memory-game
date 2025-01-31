@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import Loading from "./Loading";
 import { getPokemonData, shuffleArray } from "./getPokemon";
-import "../styles/cards.css";
+import "../Styles/cards.css";
 
 function Cards({
   activePokemon,

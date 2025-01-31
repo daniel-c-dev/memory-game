@@ -1,5 +1,5 @@
 import DifficultySelect from "./DifficultySelect";
-import "../styles/mainmenu.css";
+import "../Styles/mainmenu.css";
 
 function MainMenu({ setDifficulty }) {
   const handleDifficultySelection = (event) => {
