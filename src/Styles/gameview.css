@@ -26,4 +26,8 @@
 .gameview .home-button {
   grid-area: home-button;
   margin: auto;
+  height: 4rem;
+  width: 4rem;
+  border: none;
+  background: none;
 }

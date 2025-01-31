@@ -1,9 +1,10 @@
 import "../styles/button.css";
 
-function Button({ className, text, value, onClick }) {
+function Button({ className, text, image, value, onClick }) {
   return (
     <button className={className} value={value} onClick={onClick}>
-      {text}
+      {text ? text : null}
+      {image ? <img src={image} /> : null}
     </button>
   );
 }

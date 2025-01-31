@@ -38,7 +38,11 @@ function GameView({ difficulty, setDifficulty }) {
       {gameState !== "win" && gameState !== "loss" ? (
         <>
           <ScoreBoard score={score} highScore={highScore} />
-          <Button className="home-button" text="Home" onClick={returnToHome} />
+          <Button
+            className="home-button"
+            image={"./src/assets/pokeball-icon.png"}
+            onClick={returnToHome}
+          />
           <Cards
             key={gameState}
             activePokemon={activePokemon}
