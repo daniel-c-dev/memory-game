@@ -1,8 +1,11 @@
-# React + Vite
+# Pokemon Memory Game
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Live Preview](https://dcmemorygame.netlify.app/)
 
-Currently, two official plugins are available:
+A memory game featuring pokemon from PokeAPI. There are three different difficulty settings, and the game is won by clicking each Pokemon once.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Built with
+---
+- Vite + React
+- CSS
